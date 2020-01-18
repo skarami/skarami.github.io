@@ -1,5 +1,9 @@
 <html>
  <body>
- 
+ <script>
+  navigator.serviceWorker.addEventListener('message', function handler (event) {
+  console.log(event.data);
+});
+  </script>
  </body>
 </html>
