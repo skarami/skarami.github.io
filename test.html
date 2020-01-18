@@ -1,5 +1,9 @@
 <html>
  <body>
- 
+ <script> 
+  var url = new URL(window.location.href);
+  var c = url.searchParams.get("c");
+  window.open(c);
+  </script>
  </body>
 </html>
