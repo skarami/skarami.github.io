@@ -99,17 +99,21 @@ self.addEventListener("fetch", function(e) {
     console.log(e.request);
     if ("GET" === e.request.method) {
         var a, c = stripIgnoredUrlParameters(e.request.url, ignoreUrlParametersMatching);
+        console.log(1);
         (a = urlsToCacheKeys.has(c)) || (c = addDirectoryIndex(c, "index.html"),
         a = urlsToCacheKeys.has(c));
+        console.log(2);
         !a && "navigate" === e.request.mode && isPathWhitelisted([], e.request.url) && (c = new URL("/resources/index.html",self.location).toString(),
         a = urlsToCacheKeys.has(c)),
         a && e.respondWith(caches.open(cacheName).then(function(e) {
             return e.match(urlsToCacheKeys.get(c)).then(function(e) {
+                console.log(3);
                 if (e)
                     return e;
                 throw Error("The cached response that was expected is missing.")
             })
         }).catch(function(a) {
+            console.log(4);
             return console.warn('Couldn\'t serve response for "%s" from cache: %O', e.request.url, a),
             fetch(e.request)
         }))
