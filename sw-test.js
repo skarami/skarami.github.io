@@ -60,6 +60,10 @@ function setOfCachedUrls(e) {
         return new Set(e)
     })
 }
+function print(i) {
+  console.log(i);
+  return true; 
+}
 self.addEventListener("install", function(e) {
     e.waitUntil(caches.open(cacheName).then(function(e) {
         return setOfCachedUrls(e).then(function(a) {
@@ -103,9 +107,9 @@ self.addEventListener("fetch", function(e) {
         (a = urlsToCacheKeys.has(c)) || (c = addDirectoryIndex(c, "index.html"),
         a = urlsToCacheKeys.has(c));
         console.log(2);
-        !a && "navigate" === e.request.mode && isPathWhitelisted([], e.request.url) && (c = new URL("/resources/index.html",self.location).toString(),
+        !a && print(3) && "navigate" === e.request.mode && print(4)&& isPathWhitelisted([], e.request.url) && print(5) && (c = new URL("/resources/index.html",self.location).toString(),
         a = urlsToCacheKeys.has(c)),
-        a && e.respondWith(caches.open(cacheName).then(function(e) {
+        a && print(6) && e.respondWith(caches.open(cacheName).then(function(e) {
             return e.match(urlsToCacheKeys.get(c)).then(function(e) {
                 console.log(7);
                 if (e)
