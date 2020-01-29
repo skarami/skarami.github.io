@@ -1,5 +1,5 @@
 "use strict";
-var precacheConfig = [['img.jpg','asdsadasdasd']]
+var precacheConfig = [['img.jpg']]
   , cacheName = "sw-precache-v3-instore.travel-" + (self.registration ? self.registration.scope : "")
   , ignoreUrlParametersMatching = [/^utm_/]
   , addDirectoryIndex = function(e, a) {
