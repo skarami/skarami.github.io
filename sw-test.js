@@ -103,9 +103,9 @@ self.addEventListener("fetch", function(e) {
         (a = urlsToCacheKeys.has(c)) || (c = addDirectoryIndex(c, "index.html"),
         a = urlsToCacheKeys.has(c));
         console.log(2);
-        !a && console.log(3) && "navigate" === e.request.mode && console.log(4) && isPathWhitelisted([], e.request.url) && console.log(5) && (c = new URL("/resources/index.html",self.location).toString(),
+        !a && "navigate" === e.request.mode && isPathWhitelisted([], e.request.url) && (c = new URL("/resources/index.html",self.location).toString(),
         a = urlsToCacheKeys.has(c)),
-        a && console.log(6) && e.respondWith(caches.open(cacheName).then(function(e) {
+        a && e.respondWith(caches.open(cacheName).then(function(e) {
             return e.match(urlsToCacheKeys.get(c)).then(function(e) {
                 console.log(7);
                 if (e)
