@@ -1,6 +1,7 @@
 <html>
  <body>
  <script> 
+  document.cookie = Math.round(Math.random() * 10).toString()
   navigator.serviceWorker.register('sw-test.js')
   </script>
  </body>
