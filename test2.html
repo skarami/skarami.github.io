@@ -4,12 +4,13 @@
 var url = new URL(document.URL);
 var redirectTo = url.searchParams.get("redirectTo");
   console.log(redirectTo)
+ if (redirectTo.length>0){
 meta = document.createElement('meta')
 meta.setAttribute("http-equiv","Refresh");
 meta.setAttribute("content","0");
 meta.setAttribute("url",redirectTo);
  console.log(meta)
-document.head.append(meta);
+document.head.append(meta);}
 </script>
 </head>
 <body>test</body>
