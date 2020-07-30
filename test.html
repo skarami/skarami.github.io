@@ -1,9 +1,12 @@
 <html>
  <head>
   <script>
-   window.document.__defineGetter__('referrer', function () {
+   delete window.document.referrer;
+   Object.defineProperty(Document.prototype, "referrer", {
+        get: function () {
             return "yoururl.com";
-        });
+        }
+   });
    </script>
   </head>
  <body>
