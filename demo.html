@@ -1,0 +1,21 @@
+<html>
+  <head>
+    </head>
+  <body>
+    <script>
+      elem = document.createElement('p');
+      elem.textContent = "This element has an id, if you have the extension installed."
+      document.body.append(elem);
+      br = document.createElement('br');
+      document.body.append(br);
+      const ifrm = document.createElement("iframe");
+      ifrm.src = "//" + window.location.host;
+      document.body.appendChild(ifrm);
+      const original = ifrm.contentWindow.Document.prototype.createElement;
+      elem2 = original.call(document,"p");
+      elem.textContent = "This element will never get any id. Since it can uses an iframe to get access to the original function"
+      document.body.append(elem);
+      
+    </script>
+    </body>
+  </html>
