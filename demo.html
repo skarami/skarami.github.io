@@ -2,12 +2,18 @@
   <head>
     </head>
   <body>
+    <p>Please install this extension: https://github.com/skarami/demo-extension</p><br>
+    <p>Then open this page.</p><br>
+    <p>The extension wraps createElement() function, but as shown attackers can use an iframe to bypass the extension.</p>
+    <br><hr>
     <script>
       elem = document.createElement('p');
       elem.textContent = "This element has an id, if you have the extension installed."
       document.body.append(elem);
+      
       br = document.createElement('br');
       document.body.append(br);
+      
       const ifrm = document.createElement("iframe");
       ifrm.hidden = true;
       ifrm.src = "//" + window.location.host;
@@ -15,7 +21,7 @@
       const original = ifrm.contentWindow.Document.prototype.createElement;
       ifrm.remove();
       elem2 = original.call(document,"p");
-      elem2.textContent = "This element will never get any id. Since it can uses an iframe to get access to the original function"
+      elem2.textContent = "This element will never get any id. Since it can uses an iframe to get access to the original createElement() function"
       document.body.append(elem2);
       
     </script>
