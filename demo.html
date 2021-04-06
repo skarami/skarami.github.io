@@ -21,7 +21,7 @@
       const original = ifrm.contentWindow.Document.prototype.createElement;
       ifrm.remove();
       elem2 = original.call(document,"p");
-      elem2.textContent = "This element will never get any id. Since it can uses an iframe to get access to the original createElement() function"
+      elem2.textContent = "The extension cannot add id to this element. Since this website uses an iframe to circumvent the extension and has access to the original createElement() function"
       document.body.append(elem2);
       
     </script>
